@@ -29,5 +29,20 @@ namespace trabalhoTi2Final.Models
         {
             return new ApplicationDbContext();
         }
+
+        // tabelas da bd
+
+        public virtual DbSet<Refeicao> Refeicoes { get; set; }
+        public virtual DbSet<Ementas> Ementas { get; set; }
+        public virtual DbSet<Pratos> Pratos { get; set; }
+        public virtual DbSet<TipoPrato> TipoPratos { get; set; }
+        public virtual DbSet<Utilizador> Utilizadores { get; set; }
+
+
+
+
+
+
+
     }
 }
