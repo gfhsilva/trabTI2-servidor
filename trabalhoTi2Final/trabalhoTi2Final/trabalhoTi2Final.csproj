@@ -284,6 +284,7 @@
     <Content Include="Views\TipoPratoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Administrador\" />
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
   </ItemGroup>
