@@ -10,6 +10,7 @@ namespace trabalhoTi2Final.Models
     public class Utilizador
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que um novo utilizador tenha um ID automático
         public int IDUtilizador { get; set; }
         public string Nome { get; set; }
         public string Tipo { get; set; }

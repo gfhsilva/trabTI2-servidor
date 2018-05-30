@@ -10,6 +10,7 @@ namespace trabalhoTi2Final.Models
     public class Refeicao
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que um novo refeição tenha um ID automático
         public int IDRefeicao { get; set; }
         public String Periodo { get; set; }
         public DateTime Dia { get; set; }

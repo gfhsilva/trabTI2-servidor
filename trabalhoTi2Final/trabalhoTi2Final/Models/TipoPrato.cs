@@ -9,7 +9,10 @@ namespace trabalhoTi2Final.Models
 {
     public class TipoPrato
     {
+
+
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que um novo tipoPrato tenha um ID automático
         public int IDTipoPrato { get; set; }
 
         public string Designacao { get; set; }

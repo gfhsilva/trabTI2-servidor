@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace trabalhoTi2Final.Models
     public class Ementas
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que uma nova ementa tenha um ID automático
         public int IDEmentas { get; set; }
 
 

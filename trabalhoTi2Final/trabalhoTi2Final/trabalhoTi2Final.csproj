@@ -184,6 +184,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\TipoPratoesController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -209,6 +210,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Refeitorio22Db.mdf" />
+    <Content Include="App_Data\Refeitorio22Db_log.ldf">
+      <DependentUpon>Refeitorio22Db.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -282,9 +287,12 @@
     <Content Include="Views\TipoPratoes\Details.cshtml" />
     <Content Include="Views\TipoPratoes\Edit.cshtml" />
     <Content Include="Views\TipoPratoes\Index.cshtml" />
+    <Content Include="Views\TipoPratoes\inicioTipoPrato.cshtml" />
+    <Content Include="Views\TipoPratoes\inicTipoPrato.cshtml" />
+    <Content Include="Views\Home\tipoPrato.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Administrador\" />
     <Folder Include="images\" />
     <Folder Include="NewFolder1\" />
   </ItemGroup>

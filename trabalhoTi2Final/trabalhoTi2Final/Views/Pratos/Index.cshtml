@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Listar</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -29,7 +29,10 @@
             @Html.DisplayFor(modelItem => item.TipoPrato.Designacao)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            @* @Html.DisplayFor(modelItem => item.Image)*@
+            <a href="~/images/@item.Image" target="_blank">
+                <img src="~/images/@item.Image" width="50" height="37" />
+            </a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
