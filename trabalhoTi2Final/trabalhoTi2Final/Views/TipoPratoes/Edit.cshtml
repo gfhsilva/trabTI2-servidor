@@ -3,48 +3,72 @@
 @{
     ViewBag.Title = "Edit";
 }
+<h2>Editar o Tipo de Prato</h2>
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
+@*
+    Quando se deseja efetuar o upload de um ficheiro,
+    esta instrução é insuficiente
+    @using(Html.BeginForm())
+    é necessário adicionar-lhe o parâmetro 'enctype = "multipart/form-data" '
+*@
+@using (Html.BeginForm("Edit",
+                      "tipoPratoes",
+                      FormMethod.Post,
+                      new { enctype = "multipart/form-data" }))
 {
+
+
+
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>TipoPrato</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IDTipoPrato)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Designacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Designacao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Designacao, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-            </div>
-        </div>
+  
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+<div class="form-horizontal">
+    <h4>Tipo de Prato</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IDTipoPrato)
+    @* esta instrução foi aqui adicionada, pois é necessária para
+        garantir que o nome da fotografia
+        de um tipo de prato seja devidamente entregue no controller *@
+    @Html.HiddenFor(model => model.Image)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Designacao, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Designacao, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Designacao, "", new { @class = "text-danger" })
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="form-group">
+        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @* com a adição da opção de efetuar upload de uma imagem, estes objetos não são mais necessários
+                @Html.EditorFor(model => model.Fotografia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fotografia, "", new { @class = "text-danger" })*@
+            @* Mostrar a imagem associada ao Agente *@
+            <a href="~/images/@Model.Image" target="_blank">
+                <img src="~/images/@Model.Image" height="150" />
+            </a>
+            @* procurar a nova imagem*@
+            <input type="file" name="uploadFoto" style="color:blue;" accept=".jpg" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar Alteração" class="btn btn-success" />
+        </div>
+    </div>
 </div>
+    }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

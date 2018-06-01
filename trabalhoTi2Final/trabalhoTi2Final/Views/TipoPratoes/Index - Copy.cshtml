@@ -1,0 +1,44 @@
+﻿@model IEnumerable<trabalhoTi2Final.Models.TipoPrato>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+  <p>Designação</p>
+            @* @Html.DisplayNameFor(model => model.Designacao)*@
+        </th>
+        <th>
+    <p>Imagem</p>
+            @*Html.DisplayNameFor(model => model.Image)<*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designacao)
+        </td>
+        <td>
+            @*    @Html.DisplayFor(modelItem => item.Image)*@
+            <a href="~/images/@item.Image" target="_blank">
+                <img src="~/images/@item.Image" width="100" height="100" />
+            </a>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDTipoPrato }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDTipoPrato }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDTipoPrato })
+        </td>
+    </tr>
+}
+
+</table>

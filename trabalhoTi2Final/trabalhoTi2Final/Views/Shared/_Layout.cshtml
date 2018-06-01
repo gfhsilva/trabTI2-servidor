@@ -22,7 +22,20 @@
             <div class="nav-item dropdown">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Refeição", "About", "Home")</li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Refeições <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Tipo de Prato", "Index", "TipoPratoes")                      
+                        </li>
+
+                        <li>@Html.ActionLink("Fornecedores", "Fornecedor", "Cadastro")</li>
+                        <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
+                        <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
+                        <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

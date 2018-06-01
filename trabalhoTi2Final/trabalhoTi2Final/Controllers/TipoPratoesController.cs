@@ -121,17 +121,54 @@ namespace trabalhoTi2Final.Administrador
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "IDTipoPrato,Designacao,Image")] TipoPrato tipoPrato)
+        public async Task<ActionResult> Edit([Bind(Include = "IDTipoPrato,Designacao,Image")] TipoPrato tipoPrato, HttpPostedFileBase uploadFoto)
         {
+            // vars. auxiliares
+            string novoNome = "";
+            string nomeAntigo = "";
+
             if (ModelState.IsValid)
             {
-                db.Entry(tipoPrato).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                try
+                {              /// se foi fornecida uma nova imagem,
+                               /// preparam-se os dados para efetuar a alteração
+                    if (uploadFoto != null)
+                    {
+                        /// antes de se fazer alguma coisa, preserva-se o nome antigo da imagem,
+                        /// para depois a remover do disco rígido do servidor
+                        nomeAntigo = tipoPrato.Image;
+                        /// para o novo nome do ficheiro, vamos adicionar o termo gerado pelo timestamp
+                        /// devidamente formatado, mais
+                        /// A extensão do ficheiro é obtida automaticamente em vez de ser escrita de forma explícita
+                        novoNome = "tipoPrato" + tipoPrato.IDTipoPrato + DateTime.Now.ToString("_yyyyMMdd_hhmmss") + Path.GetExtension(uploadFoto.FileName).ToLower(); ;
+                        /// atualizar os dados do Agente com o novo nome
+                        tipoPrato.Image = novoNome;
+                        /// guardar a nova imagem no disco rígido
+                        uploadFoto.SaveAs(Path.Combine(Server.MapPath("~/images/"), novoNome));
+                    }
+
+                    // guardar os dados do Agente
+                    db.Entry(tipoPrato).State = EntityState.Modified;
+                    // Commit
+                    db.SaveChanges();
+
+                    /// caso tenha sido fornecida uma nova imagem há necessidade de remover 
+                    /// a antiga
+                    if (uploadFoto != null)
+                        System.IO.File.Delete(Path.Combine(Server.MapPath("~/images/"), nomeAntigo));
+
+
+                    // enviar os dados para a página inicial
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    // caso haja um erro deve ser enviada uma mensagem para o utilizador
+                    ModelState.AddModelError("", string.Format("Ocorreu um erro com a edição dos dados do tipo de Prato {0}", tipoPrato.Designacao));
+                }
             }
             return View(tipoPrato);
         }
-
         // GET: TipoPratoes/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
