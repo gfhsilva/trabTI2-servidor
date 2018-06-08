@@ -9,9 +9,10 @@ namespace trabalhoTi2Final.Models
 {
     public class Pratos
     {
+
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que um novo prato tenha um ID automático
         public int IDPratos { get; set; }
+
         public string Image { get; set; }
         public string Descricao { get; set; }
      

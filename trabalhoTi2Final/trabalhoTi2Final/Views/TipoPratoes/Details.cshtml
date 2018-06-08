@@ -19,16 +19,20 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Image)
+            @*  @Html.DisplayNameFor(model => model.Image)*@
+
+          
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Image)
+            <a href="~/images/@Model.Image" target="_blank">
+                <img src="~/images/@Model.Image" height="150" />
+            </a>
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDTipoPrato }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDTipoPrato }) |
+    @Html.ActionLink("Voltar para listagem", "Index")
 </p>

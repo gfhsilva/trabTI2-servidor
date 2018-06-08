@@ -22,6 +22,12 @@ namespace trabalhoTi2Final.Administrador
             return View(await db.TipoPratos.ToListAsync());
         }
 
+        // GET: TipoPratoes
+        public async Task<ActionResult> IndexTipoPrato()
+        {
+            return View(await db.TipoPratos.ToListAsync());
+        }
+
         // GET: TipoPratoes/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -194,6 +200,11 @@ namespace trabalhoTi2Final.Administrador
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
+
+
+     
+
 
         protected override void Dispose(bool disposing)
         {

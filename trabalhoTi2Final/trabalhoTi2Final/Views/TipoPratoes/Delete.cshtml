@@ -24,7 +24,9 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Image)
+            <a href="~/images/@Model.Image" target="_blank">
+                <img src="~/images/@Model.Image" height="150" />
+            </a>
         </dd>
 
     </dl>

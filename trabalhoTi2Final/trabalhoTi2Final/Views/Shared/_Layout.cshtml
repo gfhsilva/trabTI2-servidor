@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title -Requisitor de Senhas - IPT</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Requisitor de Senhas - IPT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="nav-item dropdown">
                 <ul class="nav navbar-nav">
@@ -27,11 +27,11 @@
                             Refeições <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Tipo de Prato", "Index", "TipoPratoes")                      
+                            <li>@Html.ActionLink("Tipo de Prato", "IndexTipoPrato", "TipoPratoes")                      
                         </li>
 
-                        <li>@Html.ActionLink("Fornecedores", "Fornecedor", "Cadastro")</li>
-                        <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
+                        <li>@Html.ActionLink("Pratos", "Index", "Pratos")</li>
+                        <li>@Html.ActionLink("Pratos", "Index", "Cadastro")</li>
                         <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
                         <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
                         </ul>
@@ -46,7 +46,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Requisitor de Senhas-IPT</p>
         </footer>
     </div>
 

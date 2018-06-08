@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<trabalhoTi2Final.Models.TipoPrato>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listagem de Tipo de Pratos";
 }
 
-<h2>Index</h2>
+<h2>Listagem de Tipo de Pratos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table table-striped">
     <tr>
@@ -29,14 +29,13 @@
         </td>
         <td>
             @*    @Html.DisplayFor(modelItem => item.Image)*@
-            <a href="~/images/@item.Image" target="_blank">
-                <img src="~/images/@item.Image" width="100" height="100" />
+            <a href="~/images/@item.Image">
+                <img src="~/images/@item.Image" width="130" height="130" />
             </a>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDTipoPrato }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDTipoPrato }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDTipoPrato })
+            @Html.ActionLink("Editar ", "Edit", new { id=item.IDTipoPrato }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.IDTipoPrato })
         </td>
     </tr>
 }
