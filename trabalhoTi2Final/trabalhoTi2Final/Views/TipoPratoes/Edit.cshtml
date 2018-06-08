@@ -35,38 +35,40 @@
     @Html.HiddenFor(model => model.Image)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Designacao, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
+            @Html.Label("Designação", htmlAttributes: new { @class = "LabelCSSTop" })
             @Html.EditorFor(model => model.Designacao, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Designacao, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
+            @Html.Label("Fotografia", htmlAttributes: new { @class = "LabelCSSTop" })<br />
+
             @* com a adição da opção de efetuar upload de uma imagem, estes objetos não são mais necessários
-                @Html.EditorFor(model => model.Fotografia, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Fotografia, "", new { @class = "text-danger" })*@
+        @Html.EditorFor(model => model.Fotografia, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Fotografia, "", new { @class = "text-danger" })*@
             @* Mostrar a imagem associada ao Agente *@
             <a href="~/images/@Model.Image" target="_blank">
                 <img src="~/images/@Model.Image" height="150" />
             </a>
             @* procurar a nova imagem*@
             <input type="file" name="uploadFoto" style="color:blue;" accept=".jpg" />
+
         </div>
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Guardar Alteração" class="btn btn-success" />
+        <div class="col-md-offset-2 col-md-10"class=text-right>
+            <input style="float:left;"  type="submit" value="Guardar Alteração" class="btn btn-success" />
         </div>
     </div>
 </div>
     }
 
     <div>
-        @Html.RadioButton("Voltar para listagem", "Index")
+        @Html.ActionLink("Voltar para listagem", "Index")
     </div>
 
     @section Scripts {

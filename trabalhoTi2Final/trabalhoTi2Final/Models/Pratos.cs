@@ -14,6 +14,7 @@ namespace trabalhoTi2Final.Models
         public int IDPratos { get; set; }
 
         public string Image { get; set; }
+        
         public string Descricao { get; set; }
      
   

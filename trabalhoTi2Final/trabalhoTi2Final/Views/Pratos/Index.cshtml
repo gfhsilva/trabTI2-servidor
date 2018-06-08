@@ -17,9 +17,11 @@
         <th>
             @Html.DisplayNameFor(model => model.Image)
         </th>
-        <th>
+        <th style="width: 250px;
+ padding:10px;
+ _width: 255px;">
             @Html.DisplayNameFor(model => model.Descricao)
-        </th>
+        </thstyle="width:>
         <th></th>
     </tr>
 
@@ -35,15 +37,15 @@
                     <img src="~/images/@item.Image" width="100" height="100" />
                 </a>
             </td>
-            <td>
+            <td >
                 @Html.DisplayFor(modelItem => item.Descricao)
 
 
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IDPratos }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IDPratos }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IDPratos })
+                @Html.ActionLink("Editar", "Edit", new { id = item.IDPratos }) |
+             
+                @Html.ActionLink("Apagar Prato", "Delete", new { id = item.IDPratos })
             </td>
         </tr>
     }

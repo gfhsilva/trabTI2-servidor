@@ -4,13 +4,20 @@
     ViewBag.Title = "Create";
 }
 
+
+
+
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
+@using (Html.BeginForm("Create",
+                      "pratos",
+                      FormMethod.Post,
+                      new { enctype = "multipart/form-data" }
+                      ))
+{@Html.AntiForgeryToken()
+
+
     <div class="form-horizontal">
         <h4>Pratos</h4>
         <hr />
@@ -18,12 +25,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                @*Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
+                @* File Upload *@
+                <input type="file"
+                       name="fileUploadFotografia"
+                       style="color:blue;"
+                       accept=".jpg" />
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" >
             @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextArea("Descricao", null, new { @class = "form-control" })
