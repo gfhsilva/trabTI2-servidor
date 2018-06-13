@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -9,49 +10,63 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Utilizador.Nome)
+            @*  @Html.DisplayNameFor(model => model.Prato.Descricao)*@
+         Nome do Utilizdor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Periodo)
+           
+            @* @Html.DisplayNameFor(model => model.Utilizador.Nome)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dia)
+            Periodo da Refeição
+            @* @Html.DisplayNameFor(model => model.Periodo)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataReserva)
+            Dia
+            @*   @Html.DisplayNameFor(model => model.Dia)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fornecido)
+            Dia da reserva
+            @*  @Html.DisplayNameFor(model => model.DataReserva)*@
         </th>
-        <th></th>
-    </tr>
+        <th>
+            @*    @Html.DisplayNameFor(model => model.Fornecido)*@
+        </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Periodo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataReserva)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fornecido)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDRefeicao }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDRefeicao }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDRefeicao })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model) {
+            <tr>
 
-</table>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utilizador.Nome)
+                </td>
+
+                <td>
+                    @* @Html.DisplayFor(modelItem => item.Prato.Descricao)*@
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Periodo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataReserva)
+                </td>
+                <td>
+                    @* @Html.DisplayFor(modelItem => item.Fornecido)*@
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Refeição", "Edit", new { id = item.IDRefeicao }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IDRefeicao }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IDRefeicao })
+                </td>
+            </tr>
+        }
+
+        </table>

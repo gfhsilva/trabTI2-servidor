@@ -11,11 +11,13 @@ namespace trabalhoTi2Final.Models
     {
 
         [Key]
-        public int IDPratos { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que um novo tipoPrato tenha um ID automático
 
+        public int IDPratos { get; set; }
+        public string Descricao { get; set; }
         public string Image { get; set; }
         
-        public string Descricao { get; set; }
+       
      
   
 

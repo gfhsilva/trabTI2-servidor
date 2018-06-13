@@ -10,20 +10,16 @@ namespace trabalhoTi2Final.Models
     public class Ementas
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que uma nova ementa tenha um ID automático
         public int IDEmentas { get; set; }
-
-
         public DateTime Dia { get; set; }
         public string Periodo { get; set; }
 
 
-        public Ementas()
-        {
-            ListaDePratos= new HashSet<Pratos>();
-        }
+        [ForeignKey("Prato")]
+        public int pratosFk { get; set; }
+        public virtual Pratos Prato { get; set; }
 
-        public virtual ICollection<Pratos> ListaDePratos { get; set; }
+        public virtual TipoPrato TipoPrato { get; set; }
 
     }
 }

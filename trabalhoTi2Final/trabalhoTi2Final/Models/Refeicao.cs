@@ -9,25 +9,24 @@ namespace trabalhoTi2Final.Models
 {
     public class Refeicao
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que um novo refeição tenha um ID automático
+
+           [Key]
+        //    [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede que um novo refeição tenha um ID automático
         public int IDRefeicao { get; set; }
         public String Periodo { get; set; }
         public DateTime Dia { get; set; }
         public DateTime DataReserva { get; set; }
-        public Boolean Fornecido { get; set; }
+        public bool Fornecido { get; set; }
 
 
         [ForeignKey("Utilizador")]
-        public int UtilizadorFK { get; set; }
+        public int utilizadorFK { get; set; }
         public virtual Utilizador Utilizador { get; set; }
 
-        public Refeicao()
-        {
-            ListaDePratos = new HashSet<Pratos>();
-        }
-
-        public virtual ICollection<Pratos> ListaDePratos { get; set; }
+        [ForeignKey("Prato")]
+        public int PratosFk { get; set; }
+        public virtual Pratos Prato { get; set; }
+     
 
     }
 }

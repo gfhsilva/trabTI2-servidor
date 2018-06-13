@@ -24,19 +24,34 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Refeições <span class="caret"></span>
+                            Refeições-Administrativos <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Tipo de Prato", "IndexTipoPrato", "TipoPratoes")                      
+                            <li>
+                                @Html.ActionLink("Tipo de Prato", "IndexTipoPrato", "TipoPratoes")
                         </li>
 
                         <li>@Html.ActionLink("Pratos", "Index", "Pratos")</li>
                         <li>@Html.ActionLink("Pratos", "Index", "Cadastro")</li>
                         <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
                         <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
-                        </ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Refeições <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            @Html.ActionLink("Refeições", "IndexTipoPrato", "TipoPratoes")
                     </li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    <li>@Html.ActionLink("Pratos", "Index", "Pratos")</li>
+                    <li>@Html.ActionLink("Pratos", "Index", "Cadastro")</li>
+                    <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
+                    <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
+                </ul>
+                </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

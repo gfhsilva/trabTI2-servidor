@@ -38,16 +38,7 @@ namespace trabalhoTi2Final.Migrations
             context.SaveChanges();
 
 
-            var ementas = new List<Ementas>{
-    new Ementas{IDEmentas=1,Dia=new DateTime(2018,02,13),Periodo="Almoço"},
-    new Ementas{IDEmentas=2,Dia=new DateTime(2018,02,13),Periodo="Almoço"},
-    new Ementas{IDEmentas=3,Dia=new DateTime(2018,02,3),Periodo="Jantar"},
-    new Ementas{IDEmentas=4,Dia=new DateTime(2018,02,13),Periodo="Almoço"},
 
-
-};
-            ementas.ForEach(ee => context.Ementas.AddOrUpdate(e => e.Dia, ee));
-            context.SaveChanges();
 
 
             var pratos = new List<Pratos> {
@@ -67,14 +58,14 @@ namespace trabalhoTi2Final.Migrations
 
 
             var refeicao = new List<Refeicao>{
-    new Refeicao{IDRefeicao=1, Periodo="Almoço",Dia=new DateTime(2018,02,13),DataReserva=new DateTime(2018,02,13),Fornecido=true,  UtilizadorFK=1},
-    new Refeicao{IDRefeicao=2, Periodo="Almoço",Dia=new DateTime(2018,02,13),DataReserva=new DateTime(2018,02,13),Fornecido=false,  UtilizadorFK=1},
-    new Refeicao{IDRefeicao=3, Periodo="Jantar",Dia=new DateTime(2018,02,20),DataReserva=new DateTime(2018,02,13),Fornecido=false,  UtilizadorFK=1},
-    new Refeicao{IDRefeicao=4, Periodo="Jantar",Dia=new DateTime(2018,02,13),DataReserva=new DateTime(2018,02,13),Fornecido=true,  UtilizadorFK=4},
-    new Refeicao{IDRefeicao=5, Periodo="Almoço",Dia=new DateTime(2018,02,22),DataReserva=new DateTime(2018,02,21),Fornecido=false,  UtilizadorFK=3},
-    new Refeicao{IDRefeicao=6, Periodo="Almoço",Dia=new DateTime(2018,02,23),DataReserva=new DateTime(2018,02,22),Fornecido=true,  UtilizadorFK=2},
-    new Refeicao{IDRefeicao=7, Periodo="Jantar",Dia=new DateTime(2018,02,24),DataReserva=new DateTime(2018,02,23),Fornecido=false,  UtilizadorFK=1},
-    new Refeicao{IDRefeicao=8, Periodo="Jantar",Dia=new DateTime(2018,02,25),DataReserva=new DateTime(2018,02,24),Fornecido=true,  UtilizadorFK=6}
+    new Refeicao{IDRefeicao=1, Periodo="Almoço",Dia=new DateTime(2018,02,13),DataReserva=new DateTime(2018,02,13),Fornecido=true,  utilizadorFK=1,PratosFk=1},
+    new Refeicao{IDRefeicao=2, Periodo="Almoço",Dia=new DateTime(2018,02,13),DataReserva=new DateTime(2018,02,13),Fornecido=false,  utilizadorFK=1,PratosFk=1},
+    new Refeicao{IDRefeicao=3, Periodo="Jantar",Dia=new DateTime(2018,02,20),DataReserva=new DateTime(2018,02,13),Fornecido=false,  utilizadorFK=1,PratosFk=1},
+    new Refeicao{IDRefeicao=4, Periodo="Jantar",Dia=new DateTime(2018,02,13),DataReserva=new DateTime(2018,02,13),Fornecido=true,  utilizadorFK=4,PratosFk=1},
+    new Refeicao{IDRefeicao=5, Periodo="Almoço",Dia=new DateTime(2018,02,22),DataReserva=new DateTime(2018,02,21),Fornecido=false,  utilizadorFK=3,PratosFk=1},
+    new Refeicao{IDRefeicao=6, Periodo="Almoço",Dia=new DateTime(2018,02,23),DataReserva=new DateTime(2018,02,22),Fornecido=true,  utilizadorFK=2,PratosFk=1},
+    new Refeicao{IDRefeicao=7, Periodo="Jantar",Dia=new DateTime(2018,02,24),DataReserva=new DateTime(2018,02,23),Fornecido=false,  utilizadorFK=1,PratosFk=1},
+    new Refeicao{IDRefeicao=8, Periodo="Jantar",Dia=new DateTime(2018,02,25),DataReserva=new DateTime(2018,02,24),Fornecido=true,  utilizadorFK=6,PratosFk=1}
 
 
 };
@@ -82,7 +73,16 @@ namespace trabalhoTi2Final.Migrations
             context.SaveChanges();
 
 
+                        var ementas = new List<Ementas>{
+    new Ementas{IDEmentas=1,Dia=new DateTime(2018,02,13),Periodo="Almoço",pratosFk=1},
+    new Ementas{IDEmentas=2,Dia=new DateTime(2018,02,13),Periodo="Almoço",pratosFk=1},
+    new Ementas{IDEmentas=3,Dia=new DateTime(2018,02,3),Periodo="Jantar",pratosFk=1},
+    new Ementas{IDEmentas=4,Dia=new DateTime(2018,02,13),Periodo="Almoço",pratosFk=1},
 
+
+};
+            ementas.ForEach(ee => context.Ementas.AddOrUpdate(e => e.Dia, ee));
+            context.SaveChanges();
 
 
 
