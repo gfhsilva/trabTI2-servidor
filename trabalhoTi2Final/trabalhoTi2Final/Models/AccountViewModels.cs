@@ -23,6 +23,7 @@ namespace trabalhoTi2Final.Models
         public bool RememberMe { get; set; }
     }
 
+
     public class VerifyCodeViewModel
     {
         [Required]
@@ -79,7 +80,13 @@ namespace trabalhoTi2Final.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //**********************************************************
+        // atributo específicos do utilizador
+
+        public Utilizador Utilizador { get; set; }
     }
+
 
     public class ResetPasswordViewModel
     {

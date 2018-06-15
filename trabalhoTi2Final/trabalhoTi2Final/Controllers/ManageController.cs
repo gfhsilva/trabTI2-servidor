@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using trabalhoFinalReq.Controllers;
 using trabalhoTi2Final.Models;
 
 namespace trabalhoTi2Final.Controllers

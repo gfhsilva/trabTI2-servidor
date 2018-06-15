@@ -12,7 +12,8 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Prato.Descricao)
+            @*     @Html.DisplayNameFor(model => model.Prato.Descricao)*@
+            <p>Descrição do Prato</p>
         </dt>
 
         <dd>
@@ -20,7 +21,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Dia)
+            @* @Html.DisplayNameFor(model => model.Dia)*@
+            <p>Dia da refeição</p>
         </dt>
 
         <dd>
@@ -28,16 +30,34 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Periodo)
+            <p>Tipo de Refeição</p>
+            @*@Html.DisplayNameFor(model => model.Periodo)*@
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Periodo)
         </dd>
+        <dt>
+            <p>Tipo de Prato</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prato.TipoPrato.Designacao)
+        </dd>
+
+        <dt>
+            <p>Imagem do Prato</p>
+        </dt>
+
+        <dd>
+            <a href="~/images/@Model.Prato.Image" target="_blank">
+                <img src="~/images/@Model.Prato.Image" height="150" />
+            </a>         
+
+        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDEmentas }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar para a listagem de Ementas", "Index")
 </p>

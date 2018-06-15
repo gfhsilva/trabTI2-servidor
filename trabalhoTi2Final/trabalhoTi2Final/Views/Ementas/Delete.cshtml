@@ -5,15 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<script>
+                function ConfirmMessageBox() {
+                    var result = confirm("Pretende mesmo apagar este PRATO???");
+                    if (result) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+</script>
 
-<h3>Are you sure you want to delete this?</h3>
+<div class="alert alert-danger" role="alert">
+    Deseja mesmo apagar esta Ementa???
+</div>
+
+
 <div>
     <h4>Ementas</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Prato.Descricao)
+            @*     @Html.DisplayNameFor(model => model.Prato.Descricao)*@
+            <p>Descrição do Prato</p>
         </dt>
 
         <dd>
@@ -21,7 +35,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Dia)
+            @* @Html.DisplayNameFor(model => model.Dia)*@
+            <p>Dia da refeição</p>
         </dt>
 
         <dd>
@@ -29,21 +44,40 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Periodo)
+            <p>Tipo de Refeição</p>
+            @*@Html.DisplayNameFor(model => model.Periodo)*@
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Periodo)
         </dd>
+        <dt>
+            <p>Tipo de Prato</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prato.TipoPrato.Designacao)
+        </dd>
+
+        <dt>
+            <p>Imagem do Prato</p>
+        </dt>
+
+        <dd>
+            <a href="~/images/@Model.Prato.Image" target="_blank">
+                <img src="~/images/@Model.Prato.Image" height="150" />
+            </a>
+
+        </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger" onclick="javascript:return ConfirmMessageBox();" /> |
+            @Html.ActionLink("Voltar para a listagem de Ementas", "Index")
         </div>
     }
 </div>

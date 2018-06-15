@@ -15,12 +15,19 @@ namespace trabalhoTi2Final.Controllers
     public class PratosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+       
 
         // GET: Pratos
         public ActionResult Index()
         {
             var pratos = db.Pratos.Include(p => p.TipoPrato);
             return View(pratos.ToList());
+        }
+
+        // GET: Pratos
+        public async Task<ActionResult> IndexPrato()
+        {
+            return View(await db.Pratos.ToListAsync());
         }
 
         // GET: Pratos/Details/5

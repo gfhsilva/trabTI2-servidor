@@ -1,0 +1,28 @@
+﻿@model IEnumerable<trabalhoTi2Final.Models.Pratos>
+
+@{
+    ViewBag.Title = "IndexPrato";
+}
+
+<br /><br />
+
+<div  >
+    <center>
+        <a href='@Url.Action("Create", "Pratos")'>
+            <img  src='@Url.Content("~/images/add.png")'  width="160" height="160"><br />Adicionar Prato<img />
+
+
+
+        </a>
+        </div>
+<center>    
+    <div>
+
+        <a href='@Url.Action("Index", "Pratos")'>
+            <img src='@Url.Content("~/images/list.png")' width="160" height="160"><br />Listar Pratos<img />
+
+
+        </a>
+    </div>
+
+

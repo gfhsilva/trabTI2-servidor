@@ -26,6 +26,7 @@ namespace trabalhoTi2Final.Migrations
             context.SaveChanges();
 
 
+
             var utilizador = new List<Utilizador>{
     new Utilizador{IDUtilizador=1,Nome="Guilherme Silva",Tipo="Aluno"},
     new Utilizador{IDUtilizador=2,Nome="Pedro Silva",Tipo="Aluno"},
@@ -36,6 +37,7 @@ namespace trabalhoTi2Final.Migrations
 };
             utilizador.ForEach(uu => context.Utilizadores.AddOrUpdate(u => u.Nome, uu));
             context.SaveChanges();
+
 
 
 

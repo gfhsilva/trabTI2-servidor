@@ -194,8 +194,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmentasController.cs" />
     <Compile Include="Controllers\PratosController.cs" />
+    <Compile Include="Controllers\Refeicaos1Controller.cs" />
     <Compile Include="Controllers\RefeicaosController.cs" />
     <Compile Include="Controllers\TipoPratoesController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -203,7 +205,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -263,18 +264,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -301,11 +290,29 @@
     <Content Include="Views\Refeicaos\Details.cshtml" />
     <Content Include="Views\Refeicaos\Edit.cshtml" />
     <Content Include="Views\Refeicaos\Index.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Refeicaos1\Create.cshtml" />
+    <Content Include="Views\Refeicaos1\Delete.cshtml" />
+    <Content Include="Views\Refeicaos1\Details.cshtml" />
+    <Content Include="Views\Refeicaos1\Edit.cshtml" />
+    <Content Include="Views\Refeicaos1\Index.cshtml" />
     <Content Include="Views\Ementas\Create.cshtml" />
     <Content Include="Views\Ementas\Delete.cshtml" />
     <Content Include="Views\Ementas\Details.cshtml" />
     <Content Include="Views\Ementas\Edit.cshtml" />
     <Content Include="Views\Ementas\Index.cshtml" />
+    <Content Include="Views\Pratos\IndexPrato.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
